@@ -1,0 +1,25 @@
+rules:
+  images:
+    prefix: images/
+    extensions:
+      - .jpg
+      - .jpeg
+      - .png
+      - .gif
+      - .webp
+  documents:
+    prefix: docs/
+    extensions:
+      - .pdf
+      - .docx
+      - .txt
+      - .xlsx
+  videos:
+    prefix: videos/
+    extensions:
+      - .mp4
+      - .mov
+      - .avi
+  others:
+    prefix: others/
+    extensions: []
