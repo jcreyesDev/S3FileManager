@@ -61,4 +61,17 @@ def delete_file(file_name: str, bucket: str) -> bool:
         print(e.response['Error']['Message'])
 
         return False
-        
+
+def generate_presigned_url(file_name: str, bucket: str, expires: int = 3600) -> str | None:
+    session = boto3.Session(profile_name='jcreyescloud')
+    client = session.client('s3')
+    
+    try:
+        url = client.generate_presigned_url('get_object', Params={'Bucket': bucket, 'Key': file_name}, ExpiresIn=expires)
+
+        return url
+    except ClientError as e:
+        print(e.response['Error']['Message'])
+
+        return None
+
